@@ -61,6 +61,7 @@ def analyze_email_headers(file_path, email_policy):
 
     # Extract authentication results
     authentication_results = email_message.get_all("Authentication-Results", [])
+    authentication_results_split = [part.strip() for part in authentication_results[0].split(";")]
 
     # Extract URLs and attachments from the email content
     urls = []
@@ -77,7 +78,7 @@ def analyze_email_headers(file_path, email_policy):
         "Sender Email": sender_email,
         **header_data,
         **recipients,
-        "Authentication Results": authentication_results,
+        "Authentication Results": authentication_results_split,
         "# of URLs": len(urls),
         "URLs": urls,
         "# of Attachments & Files": len(attachments),

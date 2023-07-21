@@ -70,7 +70,10 @@ Received: from SG2PR01MB4517.apcprd01.prod.exchangelabs.com(YYYY:YYYY:YYYY:YYYY:
 TO:
   - Michael Ascot <michael.ascot@swiftspend.finance>
 Authentication Results:
-  - spf=pass (sender IP is X.X.X.X)smtp.mailfrom=BRAEMARHOWELLS.COM; dkim=none (message not signed)header.d=none;dmarc=none action=noneheader.from=groupmarketingonline.icu;compauth=softpass reason=202
+  - spf=pass (sender IP is X.X.X.X)smtp.mailfrom=BRAEMARHOWELLS.COM
+  - dkim=none (message not signed)header.d=none
+  - dmarc=none action=noneheader.from=groupmarketingonline.icu
+  - compauth=softpass reason=202
 # of URLs: 14
 URLs:
   - https://www.facebook.com/GroupMarketingOnline
