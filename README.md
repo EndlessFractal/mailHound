@@ -9,7 +9,7 @@ To use the mailHound, follow these steps:
 1. Clone the repository using the following command:
 
 ```bash
-git clone https://github.com/your-username/email-header-analysis.git
+git clone https://github.com/EndlessFractal/mailHound.git
 ```
 
 2. Navigate to the cloned directory:
