@@ -31,18 +31,13 @@ def decode_attachment(part):
     content_id = part.get("Content-ID")
 
     if content_id:
-        # If "Content-ID" is present, treat it as an embedded image
-        image_name = content_id.strip("<>").split("@")[0]
-        image_data = part.get_content()
-        image_size = len(image_data)
-        return {"Name": image_name, "Size": image_size}
-
-    if content_disposition and "attachment" in content_disposition.lower():
+        attachment_name = content_id.strip("<>").split("@")[0]
+    elif content_disposition and "attachment" in content_disposition.lower():
         attachment_name = part.get_filename()
-        attachment_size = len(part.get_content())
-        return {"Name": attachment_name, "Size": attachment_size}
+    else:
+        return None
 
-    return None
+    return {"Name": attachment_name, "Size": len(part.get_content())}
 
 
 def analyze_email_headers(file_path, email_policy):
