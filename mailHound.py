@@ -106,7 +106,7 @@ def generate_report(results):
 | | | | | | (_| | | | | | | (_) | |_| | | | | (_| |
 |_| |_| |_|\__,_|_|_\_| |_/\___/ \__,_|_| |_|\__,_|
 
-by Endless Fractal\n\n"""
+by EndlessFractal\n\n"""
     if results:
         for key, value in results.items():
             if value:  # Check if the value is not empty

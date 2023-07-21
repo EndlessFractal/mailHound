@@ -60,7 +60,7 @@ Note: If the email file does not contain any URLs or attachments, the report wil
 | | | | | | (_| | | | | | | (_) | |_| | | | | (_| |
 |_| |_| |_|\__,_|_|_\_| |_/\___/ \__,_|_| |_|\__,_|
 
-by Endless Fractal
+by EndlessFractal
 
 Sender Name: Group Marketing Online Accounts Payable
 Sender Email: Accounts.Payable@groupmarketingonline.icu
