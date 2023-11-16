@@ -4,11 +4,11 @@ from email import message_from_binary_file, policy, utils
 
 
 def extract_urls_from_part(part):
-    """Extracts URLs from a text/html or text/plain email part."""
+    """Extracts unique full URLs from a text/html or text/plain email part."""
     content_type = part.get_content_type()
     if content_type in ("text/html", "text/plain"):
         content = part.get_content()
-        return re.findall(r"(?P<url>https?://[^\s\">\]\']+)", content)
+        return list(set(re.findall(r"(?P<url>https?://[^\s\">\]\']+)", content)))
     return []
 
 
@@ -61,7 +61,10 @@ def analyze_email_headers(file_path, email_policy):
 
     # Extract authentication results
     authentication_results = email_message.get_all("Authentication-Results", [])
-    authentication_results_split = [part.strip() for part in authentication_results[0].split(";")]
+    if authentication_results:
+        authentication_results_split = [part.strip() for part in authentication_results[0].split(";")]
+    else:
+        authentication_results_split = ["N/A"]
 
     # Extract URLs and attachments from the email content
     urls = []
@@ -107,6 +110,7 @@ def generate_report(results):
 |_| |_| |_|\__,_|_|_\_| |_/\___/ \__,_|_| |_|\__,_|
 
 by EndlessFractal\n\n"""
+
     if results:
         for key, value in results.items():
             if value:  # Check if the value is not empty
